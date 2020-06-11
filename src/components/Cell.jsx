@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Cell = (props) => {
+	console.log('.');
 	const { text, entryIndex, data, setData } = props;
 	const selectable = typeof text === 'boolean';
-	console.log('.');
 	const handleClick = () => {
 		if (selectable) {
 			let newData = JSON.parse(JSON.stringify(data));
