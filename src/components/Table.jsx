@@ -17,13 +17,19 @@ const headings = [
 ];
 
 const Table = (props) => {
-	const { data } = props;
+	const { data, setData } = props;
 	const [ tableEntries, setTableEntries ] = useState([]);
 
 	useEffect(
 		() => {
 			const entries = data.map((entry, i) => {
-				return <tr key={i}>{Object.values(entry).map((el, i) => <Cell key={i} text={el} />)}</tr>;
+				return (
+					<tr key={i}>
+						{Object.values(entry).map((el, i) => (
+							<Cell entryIndex={entry.index} key={i} text={el} data={data} setData={setData} />
+						))}
+					</tr>
+				);
 			});
 			setTableEntries(entries);
 		},

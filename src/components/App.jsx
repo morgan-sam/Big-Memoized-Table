@@ -43,7 +43,7 @@ function App() {
 	return (
 		<div className="App">
 			<AddData setUsers={setUsers} />
-			<Table data={data} />
+			<Table data={data} setData={setData} />
 		</div>
 	);
 }
