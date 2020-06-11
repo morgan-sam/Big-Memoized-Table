@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { capitaliseEachWord } from 'process/utility';
 
-const headings = [ 'first name', 'last name', 'gender', 'age', 'address', 'country', 'email', 'phone', 'mobile' ];
+const headings = [
+	'index',
+	'first name',
+	'last name',
+	'gender',
+	'age',
+	'address',
+	'country',
+	'email',
+	'phone',
+	'mobile'
+];
 
 const Table = (props) => {
 	const { data } = props;
@@ -12,6 +23,7 @@ const Table = (props) => {
 			const entries = data.map((entry, i) => {
 				return (
 					<tr key={i}>
+						<td>{i}</td>
 						<td>{entry.name.first}</td>
 						<td>{entry.name.last}</td>
 						<td>{capitaliseEachWord(entry.gender)}</td>
