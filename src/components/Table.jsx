@@ -9,9 +9,9 @@ const Table = (props) => {
 
 	useEffect(
 		() => {
-			const entries = data.map((entry) => {
+			const entries = data.map((entry, i) => {
 				return (
-					<tr>
+					<tr key={i}>
 						<td>{entry.name.first}</td>
 						<td>{entry.name.last}</td>
 						<td>{capitaliseEachWord(entry.gender)}</td>
@@ -34,7 +34,7 @@ const Table = (props) => {
 	return (
 		<table>
 			<thead>
-				<tr>{headings.map((el) => <th>{capitaliseEachWord(el)}</th>)}</tr>
+				<tr>{headings.map((el, i) => <th key={i}>{capitaliseEachWord(el)}</th>)}</tr>
 			</thead>
 			<tbody>{tableEntries}</tbody>
 		</table>
