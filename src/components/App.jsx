@@ -8,19 +8,16 @@ function App() {
 	const getUsers = async (num) => {
 		const raw = await fetch(`https://randomuser.me/api/?results=${num}`);
 		const json = await raw.json();
-		const data = json.results;
-		return data;
+		return json.results;
 	};
 
-	useEffect(() => {
-		(async () => {
-			setData(await getUsers(10));
-		})();
-	}, []);
+	const setUsers = async (num) => setData(await getUsers(num));
+
+	useEffect(() => setUsers(10), []);
 
 	return (
 		<div className="App">
-			<AddData />
+			<AddData setUsers={setUsers} />
 			<Table data={data} />
 		</div>
 	);
