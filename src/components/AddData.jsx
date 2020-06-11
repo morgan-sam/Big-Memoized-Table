@@ -16,7 +16,7 @@ const AddData = (props) => {
 				}}
 			>
 				<input
-					style={{ width: '2rem' }}
+					style={{ width: '2rem', textAlign: 'center' }}
 					value={userCount}
 					onChange={(e) => {
 						const newVal = e.target.value;
