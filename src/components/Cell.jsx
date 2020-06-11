@@ -2,12 +2,13 @@ import React from 'react';
 
 const Cell = (props) => {
 	console.log('.');
-	const { text, entryIndex, data, setData } = props;
-	const selectable = typeof text === 'boolean';
+	const { cellKey, cellVal, entryIndex, data, setData } = props;
+	const selectable = typeof cellVal === 'boolean';
+
 	const handleClick = () => {
 		if (selectable) {
 			let newData = JSON.parse(JSON.stringify(data));
-			newData[entryIndex]['active'] = !text;
+			newData[entryIndex][cellKey] = !cellVal;
 			setData(newData);
 		}
 	};
@@ -16,7 +17,7 @@ const Cell = (props) => {
 
 	return (
 		<td style={cellStyle} onClick={handleClick}>
-			{selectable ? text ? '✔' : '' : text}
+			{selectable ? cellVal ? '✔' : '' : cellVal}
 		</td>
 	);
 };

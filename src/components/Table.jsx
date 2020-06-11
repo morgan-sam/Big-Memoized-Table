@@ -25,8 +25,15 @@ const Table = (props) => {
 			const entries = data.map((entry, i) => {
 				return (
 					<tr key={i}>
-						{Object.values(entry).map((el, i) => (
-							<Cell entryIndex={entry.index} key={i} text={el} data={data} setData={setData} />
+						{Object.entries(entry).map(([ key, value ], i) => (
+							<Cell
+								cellKey={key}
+								cellVal={value}
+								entryIndex={entry.index}
+								key={i}
+								data={data}
+								setData={setData}
+							/>
 						))}
 					</tr>
 				);
