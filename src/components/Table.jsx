@@ -5,7 +5,6 @@ const headings = [ 'first name', 'last name', 'gender', 'age', 'address', 'count
 
 const Table = (props) => {
 	const { data } = props;
-
 	const [ tableEntries, setTableEntries ] = useState([]);
 
 	useEffect(

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Table from 'components/Table';
+import AddData from 'components/AddData';
 
 function App() {
 	const [ data, setData ] = useState([]);
@@ -19,6 +20,7 @@ function App() {
 
 	return (
 		<div className="App">
+			<AddData />
 			<Table data={data} />
 		</div>
 	);
