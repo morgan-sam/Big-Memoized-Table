@@ -36,9 +36,9 @@ function App() {
 		setData(users);
 	};
 
-	useEffect(() => setUsers(10), []);
-
-	console.log(data);
+	useEffect(() => {
+		setUsers(10);
+	}, []);
 
 	return (
 		<div className="App">
