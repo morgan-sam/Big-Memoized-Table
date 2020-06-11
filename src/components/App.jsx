@@ -13,7 +13,7 @@ function App() {
 
 	useEffect(() => {
 		(async () => {
-			setData(await getUsers(100));
+			setData(await getUsers(10));
 		})();
 	}, []);
 
