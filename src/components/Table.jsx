@@ -13,7 +13,8 @@ const headings = [
 	'email',
 	'phone',
 	'mobile',
-	'active'
+	'active',
+	'premium'
 ];
 
 const Table = (props) => {

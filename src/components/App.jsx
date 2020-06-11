@@ -25,7 +25,8 @@ function App() {
 				email: entry.email,
 				phone: entry.phone,
 				mobile: entry.cell,
-				active: false
+				active: false,
+				premium: Math.random() > 0.5
 			};
 		});
 	};
