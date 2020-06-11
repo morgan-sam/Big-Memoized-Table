@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Cell from 'components/Cell';
 import { capitaliseEachWord } from 'process/utility';
 
 const headings = [
@@ -22,21 +23,7 @@ const Table = (props) => {
 	useEffect(
 		() => {
 			const entries = data.map((entry, i) => {
-				return (
-					<tr key={i}>
-						<td>{entry.index}</td>
-						<td>{entry.firstname}</td>
-						<td>{entry.lastname}</td>
-						<td>{entry.gender}</td>
-						<td>{entry.age}</td>
-						<td>{entry.address}</td>
-						<td>{entry.country}</td>
-						<td>{entry.email}</td>
-						<td>{entry.phone}</td>
-						<td>{entry.mobile}</td>
-						<td>{entry.active ? '✔' : ''}</td>
-					</tr>
-				);
+				return <tr key={i}>{Object.values(entry).map((el, i) => <Cell key={i} text={el} />)}</tr>;
 			});
 			setTableEntries(entries);
 		},
