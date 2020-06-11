@@ -5,7 +5,7 @@ const AddData = (props) => {
 	const [ userCount, setUserCount ] = useState(0);
 
 	return (
-		<div style={{ display: 'flex', padding: '1rem 0 0 1rem' }}>
+		<div className={'addData'} style={{ display: 'flex', padding: '1rem 0 0 1rem' }}>
 			<button onClick={() => setUsers(userCount)}>Add Users</button>
 			<form
 				onKeyPress={(e) => {
@@ -25,6 +25,10 @@ const AddData = (props) => {
 					}}
 				/>
 			</form>
+			<button onClick={() => setUsers(10)}>10 Users</button>
+			<button onClick={() => setUsers(100)}>100 Users</button>
+			<button onClick={() => setUsers(1000)}>1000 Users</button>
+			<button onClick={() => setUsers(5000)}>5000 Users</button>
 		</div>
 	);
 };
