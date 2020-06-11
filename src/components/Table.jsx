@@ -25,17 +25,15 @@ const Table = (props) => {
 				return (
 					<tr key={i}>
 						<td>{i}</td>
-						<td>{entry.name.first}</td>
-						<td>{entry.name.last}</td>
-						<td>{capitaliseEachWord(entry.gender)}</td>
-						<td>{entry.dob.age}</td>
-						<td>
-							{entry.location.street.number} {entry.location.street.name} {entry.location.postcode}
-						</td>
-						<td>{entry.location.country}</td>
+						<td>{entry.firstname}</td>
+						<td>{entry.lastname}</td>
+						<td>{entry.gender}</td>
+						<td>{entry.age}</td>
+						<td>{entry.address}</td>
+						<td>{entry.country}</td>
 						<td>{entry.email}</td>
 						<td>{entry.phone}</td>
-						<td>{entry.cell}</td>
+						<td>{entry.mobile}</td>
 						<td>✔</td>
 					</tr>
 				);

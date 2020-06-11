@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Table from 'components/Table';
 import AddData from 'components/AddData';
+import { capitaliseEachWord } from 'process/utility';
 
 function App() {
 	const [ data, setData ] = useState([]);
@@ -11,7 +12,27 @@ function App() {
 		return json.results;
 	};
 
-	const setUsers = async (num) => setData(await getUsers(num));
+	const parseUsers = (data) => {
+		return data.map((entry) => {
+			return {
+				firstname: entry.name.first,
+				lastname: entry.name.last,
+				gender: capitaliseEachWord(entry.gender),
+				age: entry.dob.age,
+				address: `${entry.location.street.number} ${entry.location.street.name} ${entry.location.postcode}`,
+				country: entry.location.country,
+				email: entry.email,
+				phone: entry.phone,
+				mobile: entry.cell
+			};
+		});
+	};
+
+	const setUsers = async (num) => {
+		const unparsed = await getUsers(num);
+		const users = parseUsers(unparsed);
+		setData(users);
+	};
 
 	useEffect(() => setUsers(10), []);
 
