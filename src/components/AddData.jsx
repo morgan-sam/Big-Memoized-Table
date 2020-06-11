@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
 const AddData = (props) => {
-	const { setUsers } = props;
+	const { data, setUsers } = props;
 	const [ userCount, setUserCount ] = useState(0);
 
 	return (
 		<div className={'addData'} style={{ display: 'flex', padding: '1rem 0 0 1rem' }}>
+			<div style={{ display: 'flex', alignItems: 'center' }}>Number of Users: {data.length}</div>
 			<button onClick={() => setUsers(userCount)}>Add Users</button>
 			<form
 				onKeyPress={(e) => {
