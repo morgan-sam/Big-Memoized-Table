@@ -1,14 +1,12 @@
 import React from 'react';
 
+const headings = [ 'firstname', 'lastname', 'age', 'career', 'married', 'home', 'business' ];
+
 const Table = () => {
 	return (
 		<table>
 			<thead>
-				<tr>
-					<th>Firstname</th>
-					<th>Lastname</th>
-					<th>Age</th>
-				</tr>
+				<tr>{headings.map((el) => <th>{el.charAt(0).toUpperCase() + el.slice(1)}</th>)}</tr>
 			</thead>
 			<tbody>
 				<tr>
