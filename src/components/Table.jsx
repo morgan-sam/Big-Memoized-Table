@@ -11,7 +11,8 @@ const headings = [
 	'country',
 	'email',
 	'phone',
-	'mobile'
+	'mobile',
+	'active'
 ];
 
 const Table = (props) => {
@@ -35,6 +36,7 @@ const Table = (props) => {
 						<td>{entry.email}</td>
 						<td>{entry.phone}</td>
 						<td>{entry.cell}</td>
+						<td>✔</td>
 					</tr>
 				);
 			});
