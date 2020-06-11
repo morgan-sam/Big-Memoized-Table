@@ -1,12 +1,13 @@
 import React from 'react';
+import { capitaliseEachWord } from 'process/utility';
 
-const headings = [ 'firstname', 'lastname', 'age', 'career', 'married', 'home', 'business' ];
+const headings = [ 'first name', 'last name', 'age', 'career', 'married', 'home', 'business owner' ];
 
 const Table = () => {
 	return (
 		<table>
 			<thead>
-				<tr>{headings.map((el) => <th>{el.charAt(0).toUpperCase() + el.slice(1)}</th>)}</tr>
+				<tr>{headings.map((el) => <th>{capitaliseEachWord(el)}</th>)}</tr>
 			</thead>
 			<tbody>
 				<tr>
