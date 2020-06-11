@@ -3,7 +3,9 @@ import { capitaliseEachWord } from 'process/utility';
 
 const headings = [ 'first name', 'last name', 'age', 'career', 'married', 'home', 'business owner' ];
 
-const Table = () => {
+const Table = (props) => {
+	const { data } = props;
+	console.log(data);
 	return (
 		<table>
 			<thead>
