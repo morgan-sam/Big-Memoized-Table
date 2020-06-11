@@ -12,6 +12,7 @@ code {
 
 table {
 	border-collapse: collapse;
+	margin: 1rem;
 }
 
 th,
