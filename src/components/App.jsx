@@ -23,7 +23,8 @@ function App() {
 				country: entry.location.country,
 				email: entry.email,
 				phone: entry.phone,
-				mobile: entry.cell
+				mobile: entry.cell,
+				active: false
 			};
 		});
 	};
@@ -35,6 +36,8 @@ function App() {
 	};
 
 	useEffect(() => setUsers(10), []);
+
+	console.log(data);
 
 	return (
 		<div className="App">

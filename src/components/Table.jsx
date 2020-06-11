@@ -34,7 +34,7 @@ const Table = (props) => {
 						<td>{entry.email}</td>
 						<td>{entry.phone}</td>
 						<td>{entry.mobile}</td>
-						<td>✔</td>
+						<td>{entry.active ? '✔' : ''}</td>
 					</tr>
 				);
 			});
