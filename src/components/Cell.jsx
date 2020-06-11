@@ -11,8 +11,11 @@ const Cell = (props) => {
 			setData(newData);
 		}
 	};
+
+	const cellStyle = { cursor: selectable ? 'pointer' : 'auto', textAlign: selectable ? 'center' : 'left' };
+
 	return (
-		<td style={{ cursor: selectable ? 'pointer' : 'auto' }} onClick={handleClick}>
+		<td style={cellStyle} onClick={handleClick}>
 			{selectable ? text ? '✔' : '' : text}
 		</td>
 	);
