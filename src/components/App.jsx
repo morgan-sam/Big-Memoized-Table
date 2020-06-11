@@ -13,8 +13,9 @@ function App() {
 	};
 
 	const parseUsers = (data) => {
-		return data.map((entry) => {
+		return data.map((entry, i) => {
 			return {
+				index: i,
 				firstname: entry.name.first,
 				lastname: entry.name.last,
 				gender: capitaliseEachWord(entry.gender),

@@ -24,7 +24,7 @@ const Table = (props) => {
 			const entries = data.map((entry, i) => {
 				return (
 					<tr key={i}>
-						<td>{i}</td>
+						<td>{entry.index}</td>
 						<td>{entry.firstname}</td>
 						<td>{entry.lastname}</td>
 						<td>{entry.gender}</td>
