@@ -7,7 +7,14 @@ const AddData = (props) => {
 	return (
 		<div style={{ display: 'flex', padding: '1rem 0 0 1rem' }}>
 			<button onClick={() => setUsers(userCount)}>Add Users</button>
-			<form>
+			<form
+				onKeyPress={(e) => {
+					if (e.key === 'Enter') {
+						e.preventDefault();
+						setUsers(userCount);
+					}
+				}}
+			>
 				<input
 					style={{ width: '2rem' }}
 					value={userCount}
