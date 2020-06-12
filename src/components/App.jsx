@@ -77,12 +77,14 @@ const App = () => {
 	return (
 		<div className="App" style={appStyle}>
 			<TopOptions
-				data={data}
-				setUsers={setUsers}
-				memoization={memoization}
-				setMemoization={setMemoization}
-				screenConsole={screenConsole}
-				setScreenConsole={setScreenConsole}
+				{...{
+					data,
+					setUsers,
+					memoization,
+					setMemoization,
+					screenConsole,
+					setScreenConsole
+				}}
 			/>
 			{screenConsole && <button onClick={() => (ref.current.innerHTML = '')}>Clear Console</button>}
 			<Table data={data} setData={setData} />
