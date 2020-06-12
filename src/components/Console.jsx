@@ -4,7 +4,7 @@ const Console = (props) => {
 	const { messages, CONSOLE_WIDTH_REM } = props;
 
 	const containerStyle = {
-		width: `${props.CONSOLE_WIDTH_REM}rem`,
+		width: `${CONSOLE_WIDTH_REM}rem`,
 		height: '100%',
 		boxSizing: 'border-box',
 		overflowX: 'hidden',
