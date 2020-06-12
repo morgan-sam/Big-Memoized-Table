@@ -18,7 +18,6 @@ const Options = (props) => {
 			<button
 				onClick={() => {
 					setMemoization(!memoization);
-					setMessages([]);
 				}}
 			>
 				Turn Memoization {memoization ? 'Off' : 'On'}

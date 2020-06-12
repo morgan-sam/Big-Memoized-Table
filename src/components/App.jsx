@@ -68,22 +68,10 @@ const App = () => {
 		setLoading(false);
 	}, []);
 
-	useEffect(
-		() => {
-			if (data.length === 0) setLoading(true);
-			else setLoading(false);
-		},
-		[ data ]
-	);
-
-	useEffect(
-		() => {
-			if (!loading) {
-				setMessages([]);
-			}
-		},
-		[ loading ]
-	);
+	useEffect(() => setLoading(data.length === 0), [ data ]);
+	useEffect(() => (loading ? () => null : setMessages([])), [ loading ]);
+	useEffect(() => setLoading(true), [ memoization ]);
+	useEffect(() => setLoading(true), [ data.length ]);
 
 	useEffect(() => window.localStorage.setItem('memoDemoTableEntries', JSON.stringify(data)), [ data ]);
 
@@ -112,7 +100,14 @@ const App = () => {
 				}}
 			/>
 			{screenConsole && <button onClick={() => setMessages([])}>Clear Console</button>}
-			<Table data={data} setData={setData} memoization={memoization} loading={loading} />
+			<Table
+				data={data}
+				setData={setData}
+				memoization={memoization}
+				loading={loading}
+				setLoading={setLoading}
+				setMessages={setMessages}
+			/>
 			{screenConsole && <Console CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} messages={messages} />}
 		</div>
 	);

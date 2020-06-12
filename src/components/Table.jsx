@@ -19,7 +19,7 @@ const headings = [
 ];
 
 const Table = (props) => {
-	const { data, setData, memoization, loading } = props;
+	const { data, setData, memoization, loading, setLoading } = props;
 	const [ tableEntries, setTableEntries ] = useState([]);
 
 	const memoToggleCell = useCallback((entryIndex, cellKey, cellVal) => {
@@ -56,6 +56,13 @@ const Table = (props) => {
 			setTableEntries(entries);
 		},
 		[ data, memoization ]
+	);
+
+	useEffect(
+		() => {
+			setLoading(false);
+		},
+		[ tableEntries ]
 	);
 
 	const tableStyle = {
