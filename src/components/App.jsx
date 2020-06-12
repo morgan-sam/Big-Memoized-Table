@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Table from 'components/Table';
-import TopOptions from 'components/TopOptions';
+import Options from 'components/Options';
 import Console from 'components/Console';
 import { capitaliseEachWord } from 'process/utility';
 
@@ -76,7 +76,7 @@ const App = () => {
 
 	return (
 		<div className="App" style={appStyle}>
-			<TopOptions
+			<Options
 				{...{
 					data,
 					setUsers,

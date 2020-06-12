@@ -1,12 +1,12 @@
 import React from 'react';
 
-const TopOptions = (props) => {
+const Options = (props) => {
 	const { data, setUsers, memoization, setMemoization, screenConsole, setScreenConsole } = props;
 
 	const infoStyle = { display: 'flex', alignItems: 'center', border: '1px solid black', padding: '1rem' };
 
 	return (
-		<div className={'topOptions'} style={{ display: 'flex', flexDirection: 'row' }}>
+		<div className={'options'} style={{ display: 'flex', flexDirection: 'row' }}>
 			<div style={{ ...infoStyle, backgroundColor: memoization ? '#E5FFE5' : '#FFB2C5' }}>
 				Memoization is {memoization ? 'On' : 'Off'}
 			</div>
@@ -23,4 +23,4 @@ const TopOptions = (props) => {
 	);
 };
 
-export default TopOptions;
+export default Options;
