@@ -27,7 +27,7 @@ const Console = (props) => {
 	return (
 		<div style={containerStyle}>
 			<div style={titleStyle}>Console log ({messages.length}): </div>
-			<div style={consoleStyle}> {messages.map((el) => <div>{el}</div>)}</div>
+			<div style={consoleStyle}> {messages.map((el, i) => <div key={i}>{el}</div>)}</div>
 		</div>
 	);
 };
