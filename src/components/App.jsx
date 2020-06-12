@@ -13,6 +13,7 @@ const App = () => {
 	const [ messages, setMessages ] = useState([]);
 	const [ memoization, setMemoization ] = useState([]);
 	const [ screenConsole, setScreenConsole ] = useState(true);
+	const [ loading, setLoading ] = useState(false);
 
 	const addNewMessage = React.useCallback((str) => {
 		setMessages((messages) => {
@@ -53,16 +54,27 @@ const App = () => {
 	};
 
 	const setUsers = async (num) => {
+		setData([]);
 		const unparsed = await getUsers(num);
 		const users = parseUsers(unparsed);
 		setData(users);
 	};
 
 	useEffect(() => {
+		setData([]);
 		const localData = window.localStorage.getItem('memoDemoTableEntries');
 		if (localData && localData.length) setData(JSON.parse(localData));
 		else setUsers(20);
+		setLoading(false);
 	}, []);
+
+	useEffect(
+		() => {
+			if (data.length === 0) setLoading(true);
+			else setLoading(false);
+		},
+		[ data ]
+	);
 
 	useEffect(() => window.localStorage.setItem('memoDemoTableEntries', JSON.stringify(data)), [ data ]);
 
@@ -90,7 +102,7 @@ const App = () => {
 				}}
 			/>
 			{screenConsole && <button onClick={() => setMessages([])}>Clear Console</button>}
-			<Table data={data} setData={setData} memoization={memoization} />
+			<Table data={data} setData={setData} memoization={memoization} loading={loading} />
 			{screenConsole && <Console CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} messages={messages} />}
 		</div>
 	);
