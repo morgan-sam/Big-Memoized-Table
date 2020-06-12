@@ -7,26 +7,6 @@ const AddData = (props) => {
 	return (
 		<div className={'addData'} style={{ display: 'flex', flexDirection: 'row' }}>
 			<div style={{ display: 'flex', alignItems: 'center' }}>Number of Users: {data.length}</div>
-			<button onClick={() => setUsers(userCount)}>Add Users</button>
-			<form
-				style={{ display: 'flex', alignItems: 'center' }}
-				onKeyPress={(e) => {
-					if (e.key === 'Enter') {
-						e.preventDefault();
-						setUsers(userCount);
-					}
-				}}
-			>
-				<input
-					style={{ width: '4rem', textAlign: 'center', height: '100%', fontSize: '1.4rem' }}
-					value={userCount}
-					onChange={(e) => {
-						const newVal = e.target.value;
-						if (newVal.toString().length < 5)
-							setUserCount(e.target.value.length ? parseInt(e.target.value) : 0);
-					}}
-				/>
-			</form>
 			<button onClick={() => setUsers(10)}>10 Users</button>
 			<button onClick={() => setUsers(100)}>100 Users</button>
 			<button onClick={() => setUsers(1000)}>1000 Users</button>
