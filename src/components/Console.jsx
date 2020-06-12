@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Console = React.forwardRef((props, ref) => {
+const Console = (props) => {
+	const { messages, CONSOLE_WIDTH_REM } = props;
+
 	const containerStyle = {
 		width: `${props.CONSOLE_WIDTH_REM}rem`,
 		height: '100%',
@@ -24,10 +26,10 @@ const Console = React.forwardRef((props, ref) => {
 
 	return (
 		<div style={containerStyle}>
-			<div style={titleStyle}>Console log: </div>
-			<div style={consoleStyle} ref={ref} />
+			<div style={titleStyle}>Console log ({messages.length}): </div>
+			<div style={consoleStyle}> {messages.map((el) => <div>{el}</div>)}</div>
 		</div>
 	);
-});
+};
 
 export default Console;

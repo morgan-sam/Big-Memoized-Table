@@ -10,17 +10,20 @@ const originalConsole = window.console;
 
 const App = () => {
 	const [ data, setData ] = useState([]);
+	const [ messages, setMessages ] = useState([]);
 	const [ memoization, setMemoization ] = useState([]);
 	const [ screenConsole, setScreenConsole ] = useState(true);
-	const ref = React.createRef();
+
+	const addNewMessage = React.useCallback((str) => {
+		setMessages((messages) => {
+			return [ str, ...messages ];
+		});
+	}, []);
 
 	if (screenConsole)
 		window.console = {
-			log: (str) => {
-				var node = document.createElement('div');
-				node.appendChild(document.createTextNode(str));
-				ref.current.prepend(node);
-			}
+			...window.console,
+			log: addNewMessage
 		};
 	else window.console = originalConsole;
 
@@ -86,9 +89,9 @@ const App = () => {
 					setScreenConsole
 				}}
 			/>
-			{screenConsole && <button onClick={() => (ref.current.innerHTML = '')}>Clear Console</button>}
+			{screenConsole && <button onClick={() => setMessages([])}>Clear Console</button>}
 			<Table data={data} setData={setData} memoization={memoization} />
-			{screenConsole && <Console ref={ref} CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} />}
+			{screenConsole && <Console CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} messages={messages} />}
 		</div>
 	);
 };
