@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Cell from 'components/Cell';
+import Spinner from 'components/Spinner';
 import { capitaliseEachWord } from 'process/utility';
 
 const headings = [
@@ -66,18 +67,8 @@ const Table = (props) => {
 		border: '1px solid black'
 	};
 
-	const loadingStyle = {
-		display: 'flex',
-		height: '100%',
-		width: '100%',
-		alignItems: 'center',
-		justifyContent: 'center',
-		border: '1px solid black',
-		fontSize: '2rem'
-	};
-
 	return loading ? (
-		<div style={loadingStyle}>Loading</div>
+		<Spinner />
 	) : (
 		<table style={tableStyle}>
 			<thead>
