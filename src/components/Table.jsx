@@ -21,7 +21,7 @@ const Table = (props) => {
 	const { data, setData } = props;
 	const [ tableEntries, setTableEntries ] = useState([]);
 
-	const memoSetData = useCallback((entryIndex, cellKey, cellVal) => {
+	const memoToggleCell = useCallback((entryIndex, cellKey, cellVal) => {
 		setData((data) => {
 			let newData = JSON.parse(JSON.stringify(data));
 			newData[entryIndex][cellKey] = !cellVal;
@@ -36,7 +36,7 @@ const Table = (props) => {
 					<tr key={i}>
 						{Object.entries(entry).map(([ key, value ], i) => (
 							<Cell
-								memoSetData={memoSetData}
+								memoToggleCell={memoToggleCell}
 								cellKey={key}
 								cellVal={value}
 								entryIndex={entry.index}
