@@ -76,6 +76,15 @@ const App = () => {
 		[ data ]
 	);
 
+	useEffect(
+		() => {
+			if (!loading) {
+				setMessages([]);
+			}
+		},
+		[ loading ]
+	);
+
 	useEffect(() => window.localStorage.setItem('memoDemoTableEntries', JSON.stringify(data)), [ data ]);
 
 	const appStyle = {
