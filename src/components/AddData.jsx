@@ -9,6 +9,7 @@ const AddData = (props) => {
 			<div style={{ display: 'flex', alignItems: 'center' }}>Number of Users: {data.length}</div>
 			<button onClick={() => setUsers(userCount)}>Add Users</button>
 			<form
+				style={{ display: 'flex', alignItems: 'center' }}
 				onKeyPress={(e) => {
 					if (e.key === 'Enter') {
 						e.preventDefault();
@@ -17,7 +18,7 @@ const AddData = (props) => {
 				}}
 			>
 				<input
-					style={{ width: '2rem', textAlign: 'center' }}
+					style={{ width: '4rem', textAlign: 'center', height: '100%', fontSize: '1.4rem' }}
 					value={userCount}
 					onChange={(e) => {
 						const newVal = e.target.value;
