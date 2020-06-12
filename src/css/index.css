@@ -18,13 +18,13 @@ th,
 td {
 	border: 1px solid black;
 	padding: 1rem;
-	white-space: pre-wrap;
 }
 
 .addData > * {
 	margin-right: 10px;
 }
 
-.address {
-	width: 100%;
+.address,
+.email {
+	word-break: break-all;
 }
