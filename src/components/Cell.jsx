@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Cell = (props) => {
-	const { cellKey, cellVal, entryIndex, memoToggleCell } = props;
+	const { cellKey, cellVal, entryIndex, toggleCell } = props;
 	console.log(`Entry ${entryIndex}, ${cellKey} cell updated`);
 	const selectable = typeof cellVal === 'boolean';
 
 	const handleClick = () => {
-		if (selectable) memoToggleCell(entryIndex, cellKey, cellVal);
+		if (selectable) toggleCell(entryIndex, cellKey, cellVal);
 	};
 
 	const cellStyle = {

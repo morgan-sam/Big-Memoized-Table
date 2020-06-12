@@ -87,7 +87,7 @@ const App = () => {
 				}}
 			/>
 			{screenConsole && <button onClick={() => (ref.current.innerHTML = '')}>Clear Console</button>}
-			<Table data={data} setData={setData} />
+			<Table data={data} setData={setData} memoization={memoization} />
 			{screenConsole && <Console ref={ref} CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} />}
 		</div>
 	);

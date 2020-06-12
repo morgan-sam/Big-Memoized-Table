@@ -18,7 +18,7 @@ const headings = [
 ];
 
 const Table = (props) => {
-	const { data, setData } = props;
+	const { data, setData, memoization } = props;
 	const [ tableEntries, setTableEntries ] = useState([]);
 
 	const memoToggleCell = useCallback((entryIndex, cellKey, cellVal) => {
@@ -29,6 +29,12 @@ const Table = (props) => {
 		});
 	}, []);
 
+	const nonMemoToggleCell = (entryIndex, cellKey, cellVal) => {
+		let newData = JSON.parse(JSON.stringify(data));
+		newData[entryIndex][cellKey] = !cellVal;
+		setData(newData);
+	};
+
 	useEffect(
 		() => {
 			const entries = data.map((entry, i) => {
@@ -36,7 +42,7 @@ const Table = (props) => {
 					<tr key={i}>
 						{Object.entries(entry).map(([ key, value ], i) => (
 							<Cell
-								memoToggleCell={memoToggleCell}
+								toggleCell={memoization ? memoToggleCell : nonMemoToggleCell}
 								cellKey={key}
 								cellVal={value}
 								entryIndex={entry.index}
@@ -48,7 +54,7 @@ const Table = (props) => {
 			});
 			setTableEntries(entries);
 		},
-		[ data ]
+		[ data, memoization ]
 	);
 
 	const tableStyle = {
