@@ -6,18 +6,25 @@ import { capitaliseEachWord } from 'process/utility';
 
 const CONSOLE_WIDTH_REM = 20;
 
+const originalConsole = window.console;
+
 const App = () => {
 	const [ data, setData ] = useState([]);
 	const [ memoization, setMemoization ] = useState([]);
+	const [ screenConsole, setScreenConsole ] = useState(true);
 	const ref = React.createRef();
 
-	window.console = {
-		log: (str) => {
-			var node = document.createElement('div');
-			node.appendChild(document.createTextNode(str));
-			ref.current.prepend(node);
-		}
-	};
+	if (screenConsole)
+		window.console = {
+			log: (str) => {
+				var node = document.createElement('div');
+				node.appendChild(document.createTextNode(str));
+				ref.current.prepend(node);
+			}
+		};
+	else {
+		window.console = originalConsole;
+	}
 
 	const getUsers = async (num) => {
 		const raw = await fetch(`https://randomuser.me/api/?results=${num}`);
@@ -60,7 +67,7 @@ const App = () => {
 
 	const appStyle = {
 		display: 'grid',
-		gridTemplateColumns: `1fr ${CONSOLE_WIDTH_REM}rem`,
+		gridTemplateColumns: screenConsole ? `1fr ${CONSOLE_WIDTH_REM}rem` : '1fr',
 		gridTemplateRows: '2rem 1fr',
 		gap: '1rem',
 		boxSizing: 'border-box',
@@ -71,10 +78,17 @@ const App = () => {
 
 	return (
 		<div className="App" style={appStyle}>
-			<TopOptions data={data} setUsers={setUsers} memoization={memoization} setMemoization={setMemoization} />
-			<button onClick={() => (ref.current.innerHTML = '')}>Clear Console</button>
+			<TopOptions
+				data={data}
+				setUsers={setUsers}
+				memoization={memoization}
+				setMemoization={setMemoization}
+				screenConsole={screenConsole}
+				setScreenConsole={setScreenConsole}
+			/>
+			{screenConsole && <button onClick={() => (ref.current.innerHTML = '')}>Clear Console</button>}
 			<Table data={data} setData={setData} />
-			<Console ref={ref} CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} />
+			{screenConsole && <Console ref={ref} CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} />}
 		</div>
 	);
 };

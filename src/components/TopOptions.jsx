@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TopOptions = (props) => {
-	const { data, setUsers, memoization, setMemoization } = props;
+	const { data, setUsers, memoization, setMemoization, screenConsole, setScreenConsole } = props;
 
 	const infoStyle = { display: 'flex', alignItems: 'center', border: '1px solid black', padding: '1rem' };
 
@@ -15,7 +15,10 @@ const TopOptions = (props) => {
 			<button onClick={() => setUsers(20)}>20 Users</button>
 			<button onClick={() => setUsers(100)}>100 Users</button>
 			<button onClick={() => setUsers(1000)}>1000 Users</button>
-			<button onClick={() => setUsers(5000)}>5000 Users</button>
+			<button onClick={() => setUsers(5000)}>5000 Users</button>{' '}
+			<button onClick={() => setScreenConsole(!screenConsole)}>
+				Use {screenConsole ? 'Off' : 'On'}screen Console
+			</button>
 		</div>
 	);
 };
