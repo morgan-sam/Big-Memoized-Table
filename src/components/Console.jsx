@@ -8,16 +8,19 @@ const Console = React.forwardRef((props, ref) => {
 		overflowY: 'scroll',
 		border: '1px solid black'
 	};
+
 	const titleStyle = {
 		fontSize: '1.2rem',
 		padding: '1rem',
 		textDecoration: 'underline'
 	};
+
 	const consoleStyle = {
 		boxSizing: 'border-box',
 		width: 'inherit',
 		margin: '1rem'
 	};
+
 	return (
 		<div style={containerStyle}>
 			<div style={titleStyle}>Console log: </div>

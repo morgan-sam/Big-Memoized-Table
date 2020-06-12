@@ -2,7 +2,7 @@ import React from 'react';
 
 const Cell = (props) => {
 	const { cellKey, cellVal, entryIndex, memoSetData } = props;
-	// console.log(`Entry ${entryIndex}, ${cellKey} cell updated`);
+	console.log(`Entry ${entryIndex}, ${cellKey} cell updated`);
 	const selectable = typeof cellVal === 'boolean';
 
 	const handleClick = () => {
