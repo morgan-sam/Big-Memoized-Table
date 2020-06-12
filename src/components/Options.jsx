@@ -15,7 +15,6 @@ const Options = (props) => {
 			<button onClick={() => setUsers(20)}>20 Users</button>
 			<button onClick={() => setUsers(100)}>100 Users</button>
 			<button onClick={() => setUsers(1000)}>1000 Users</button>
-			<button onClick={() => setUsers(5000)}>5000 Users</button>{' '}
 			<button onClick={() => setScreenConsole(!screenConsole)}>
 				Use {screenConsole ? 'Off' : 'On'}screen Console
 			</button>
