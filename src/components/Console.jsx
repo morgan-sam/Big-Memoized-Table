@@ -2,7 +2,7 @@ import React from 'react';
 
 const Console = React.forwardRef((props, ref) => {
 	const containerStyle = {
-		width: '10rem',
+		width: `${props.CONSOLE_WIDTH_REM}rem`,
 		height: '100%',
 		boxSizing: 'border-box',
 		overflowY: 'scroll',

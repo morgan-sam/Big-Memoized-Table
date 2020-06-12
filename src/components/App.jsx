@@ -4,6 +4,8 @@ import AddData from 'components/AddData';
 import Console from 'components/Console';
 import { capitaliseEachWord } from 'process/utility';
 
+const CONSOLE_WIDTH_REM = 20;
+
 function App() {
 	const [ data, setData ] = useState([]);
 	const ref = React.createRef();
@@ -53,7 +55,7 @@ function App() {
 
 	const appStyle = {
 		display: 'grid',
-		gridTemplateColumns: '1fr 10rem',
+		gridTemplateColumns: `1fr ${CONSOLE_WIDTH_REM}rem`,
 		gridTemplateRows: '2rem 1fr',
 		gap: '1rem',
 		boxSizing: 'border-box',
@@ -67,7 +69,7 @@ function App() {
 			<AddData data={data} setUsers={setUsers} />
 			<button onClick={() => (ref.current.innerHTML = '')}>Clear Console</button>
 			<Table data={data} setData={setData} />
-			<Console ref={ref} />
+			<Console ref={ref} CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} />
 		</div>
 	);
 }
