@@ -7,7 +7,9 @@ const TopOptions = (props) => {
 
 	return (
 		<div className={'topOptions'} style={{ display: 'flex', flexDirection: 'row' }}>
-			<div style={infoStyle}>Memoization is {memoization ? 'On' : 'Off'}</div>
+			<div style={{ ...infoStyle, backgroundColor: memoization ? '#E5FFE5' : '#FFB2C5' }}>
+				Memoization is {memoization ? 'On' : 'Off'}
+			</div>
 			<div style={infoStyle}>Number of Users: {data.length}</div>
 			<button onClick={() => setMemoization(!memoization)}>Turn Memoization {memoization ? 'Off' : 'On'}</button>
 			<button onClick={() => setUsers(20)}>20 Users</button>
