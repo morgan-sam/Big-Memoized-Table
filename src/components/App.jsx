@@ -6,7 +6,7 @@ import { capitaliseEachWord } from 'process/utility';
 
 const CONSOLE_WIDTH_REM = 20;
 
-function App() {
+const App = () => {
 	const [ data, setData ] = useState([]);
 	const ref = React.createRef();
 
@@ -50,8 +50,12 @@ function App() {
 	};
 
 	useEffect(() => {
-		setUsers(20);
+		const localData = window.localStorage.getItem('memoDemoTableEntries');
+		if (localData && localData.length) setData(JSON.parse(localData));
+		else setUsers(20);
 	}, []);
+
+	useEffect(() => window.localStorage.setItem('memoDemoTableEntries', JSON.stringify(data)), [ data ]);
 
 	const appStyle = {
 		display: 'grid',
@@ -72,6 +76,6 @@ function App() {
 			<Console ref={ref} CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} />
 		</div>
 	);
-}
+};
 
 export default App;
