@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const AddData = (props) => {
 	const { data, setUsers } = props;
-	const [ userCount, setUserCount ] = useState(0);
 
 	return (
 		<div className={'addData'} style={{ display: 'flex', flexDirection: 'row' }}>
