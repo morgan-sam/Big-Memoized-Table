@@ -22,9 +22,7 @@ const App = () => {
 				ref.current.prepend(node);
 			}
 		};
-	else {
-		window.console = originalConsole;
-	}
+	else window.console = originalConsole;
 
 	const getUsers = async (num) => {
 		const raw = await fetch(`https://randomuser.me/api/?results=${num}`);
