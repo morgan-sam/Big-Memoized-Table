@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Table from 'components/Table';
-import AddData from 'components/AddData';
+import TopOptions from 'components/TopOptions';
 import Console from 'components/Console';
 import { capitaliseEachWord } from 'process/utility';
 
@@ -8,6 +8,7 @@ const CONSOLE_WIDTH_REM = 20;
 
 const App = () => {
 	const [ data, setData ] = useState([]);
+	const [ memoization, setMemoization ] = useState([]);
 	const ref = React.createRef();
 
 	window.console = {
@@ -70,7 +71,7 @@ const App = () => {
 
 	return (
 		<div className="App" style={appStyle}>
-			<AddData data={data} setUsers={setUsers} />
+			<TopOptions data={data} setUsers={setUsers} memoization={memoization} setMemoization={setMemoization} />
 			<button onClick={() => (ref.current.innerHTML = '')}>Clear Console</button>
 			<Table data={data} setData={setData} />
 			<Console ref={ref} CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} />
