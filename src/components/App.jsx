@@ -14,7 +14,7 @@ function App() {
 		log: (str) => {
 			var node = document.createElement('div');
 			node.appendChild(document.createTextNode(str));
-			ref.current.appendChild(node);
+			ref.current.prepend(node);
 		}
 	};
 

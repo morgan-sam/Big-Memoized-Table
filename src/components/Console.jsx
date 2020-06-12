@@ -15,6 +15,7 @@ const Console = React.forwardRef((props, ref) => {
 	};
 	const consoleStyle = {
 		boxSizing: 'border-box',
+		width: 'inherit',
 		margin: '1rem'
 	};
 	return (
