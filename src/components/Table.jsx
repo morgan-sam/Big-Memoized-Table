@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Cell from 'components/Cell';
 import { capitaliseEachWord } from 'process/utility';
 
@@ -21,6 +21,14 @@ const Table = (props) => {
 	const { data, setData } = props;
 	const [ tableEntries, setTableEntries ] = useState([]);
 
+	const memoSetData = useCallback((entryIndex, cellKey, cellVal) => {
+		setData((data) => {
+			let newData = JSON.parse(JSON.stringify(data));
+			newData[entryIndex][cellKey] = !cellVal;
+			return newData;
+		});
+	}, []);
+
 	useEffect(
 		() => {
 			const entries = data.map((entry, i) => {
@@ -28,12 +36,11 @@ const Table = (props) => {
 					<tr key={i}>
 						{Object.entries(entry).map(([ key, value ], i) => (
 							<Cell
+								memoSetData={memoSetData}
 								cellKey={key}
 								cellVal={value}
 								entryIndex={entry.index}
 								key={i}
-								data={data}
-								setData={setData}
 							/>
 						))}
 					</tr>

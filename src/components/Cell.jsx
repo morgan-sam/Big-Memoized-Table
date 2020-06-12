@@ -2,15 +2,11 @@ import React from 'react';
 
 const Cell = (props) => {
 	console.log('.');
-	const { cellKey, cellVal, entryIndex, data, setData } = props;
+	const { cellKey, cellVal, entryIndex, memoSetData } = props;
 	const selectable = typeof cellVal === 'boolean';
 
 	const handleClick = () => {
-		if (selectable) {
-			let newData = JSON.parse(JSON.stringify(data));
-			newData[entryIndex][cellKey] = !cellVal;
-			setData(newData);
-		}
+		if (selectable) memoSetData(entryIndex, cellKey, cellVal);
 	};
 
 	const cellStyle = { cursor: selectable ? 'pointer' : 'auto', textAlign: selectable ? 'center' : 'left' };
@@ -22,4 +18,4 @@ const Cell = (props) => {
 	);
 };
 
-export default Cell;
+export default React.memo(Cell);
