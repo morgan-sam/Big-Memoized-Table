@@ -52,8 +52,10 @@ function App() {
 	}, []);
 
 	const appStyle = {
-		display: 'flex',
-		flexDirection: 'row',
+		display: 'grid',
+		gridTemplateColumns: '1fr 10rem',
+		gridTemplateRows: '2rem 1fr',
+		gap: '1rem',
 		boxSizing: 'border-box',
 		height: '100vh',
 		width: '100vw',
@@ -62,10 +64,9 @@ function App() {
 
 	return (
 		<div className="App" style={appStyle}>
-			<div>
-				<AddData data={data} setUsers={setUsers} />
-				<Table data={data} setData={setData} />
-			</div>
+			<AddData data={data} setUsers={setUsers} />
+			<button onClick={() => (ref.current.innerHTML = '')}>Clear Console</button>
+			<Table data={data} setData={setData} />
 			<Console ref={ref} />
 		</div>
 	);
