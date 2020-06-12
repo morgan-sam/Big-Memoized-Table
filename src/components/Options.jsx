@@ -4,6 +4,10 @@ const Options = (props) => {
 	const { data, setUsers, memoization, setMemoization, screenConsole, setScreenConsole, setMessages } = props;
 
 	const infoStyle = { display: 'flex', alignItems: 'center', border: '1px solid black', padding: '1rem' };
+	const setUserCountResetMessages = (num) => {
+		setUsers(num);
+		setMessages([]);
+	};
 
 	return (
 		<div className={'options'} style={{ display: 'flex', flexDirection: 'row' }}>
@@ -19,30 +23,9 @@ const Options = (props) => {
 			>
 				Turn Memoization {memoization ? 'Off' : 'On'}
 			</button>
-			<button
-				onClick={() => {
-					setUsers(20);
-					setMessages([]);
-				}}
-			>
-				20 Users
-			</button>
-			<button
-				onClick={() => {
-					setUsers(100);
-					setMessages([]);
-				}}
-			>
-				100 Users
-			</button>
-			<button
-				onClick={() => {
-					setUsers(1000);
-					setMessages([]);
-				}}
-			>
-				1000 Users
-			</button>
+			<button onClick={() => setUserCountResetMessages(20)}>20 Users</button>
+			<button onClick={() => setUserCountResetMessages(100)}>100 Users</button>
+			<button onClick={() => setUserCountResetMessages(1000)}>1000 Users</button>
 			<button onClick={() => setScreenConsole(!screenConsole)}>
 				Use {screenConsole ? 'Off' : 'On'}screen Console
 			</button>
