@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Cell = (props) => {
-	console.log('.');
 	const { cellKey, cellVal, entryIndex, memoSetData } = props;
+	console.log(`${entryIndex} ${cellKey}`);
 	const selectable = typeof cellVal === 'boolean';
 
 	const handleClick = () => {

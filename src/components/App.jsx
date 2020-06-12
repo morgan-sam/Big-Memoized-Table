@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Table from 'components/Table';
 import AddData from 'components/AddData';
+import Console from 'components/Console';
 import { capitaliseEachWord } from 'process/utility';
 
 function App() {
 	const [ data, setData ] = useState([]);
+	const ref = React.createRef();
+
+	window.console = {
+		log: (str) => {
+			var node = document.createElement('div');
+			node.appendChild(document.createTextNode(str));
+			ref.current.appendChild(node);
+		}
+	};
 
 	const getUsers = async (num) => {
 		const raw = await fetch(`https://randomuser.me/api/?results=${num}`);
@@ -41,10 +51,22 @@ function App() {
 		setUsers(10);
 	}, []);
 
+	const appStyle = {
+		display: 'flex',
+		flexDirection: 'row',
+		boxSizing: 'border-box',
+		height: '100vh',
+		width: '100vw',
+		padding: '3rem'
+	};
+
 	return (
-		<div className="App">
-			<AddData data={data} setUsers={setUsers} />
-			<Table data={data} setData={setData} />
+		<div className="App" style={appStyle}>
+			<div>
+				<AddData data={data} setUsers={setUsers} />
+				<Table data={data} setData={setData} />
+			</div>
+			<Console ref={ref} />
 		</div>
 	);
 }
