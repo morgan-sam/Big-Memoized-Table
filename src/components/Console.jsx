@@ -5,6 +5,7 @@ const Console = React.forwardRef((props, ref) => {
 		width: `${props.CONSOLE_WIDTH_REM}rem`,
 		height: '100%',
 		boxSizing: 'border-box',
+		overflowX: 'hidden',
 		overflowY: 'scroll',
 		border: '1px solid black'
 	};
