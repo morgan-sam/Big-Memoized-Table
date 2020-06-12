@@ -48,7 +48,7 @@ function App() {
 	};
 
 	useEffect(() => {
-		setUsers(10);
+		setUsers(20);
 	}, []);
 
 	const appStyle = {
