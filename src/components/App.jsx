@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import Table from 'components/Table';
 import Options from 'components/Options';
 import Console from 'components/Console';
@@ -98,7 +98,8 @@ const App = () => {
 					memoization,
 					setMemoization,
 					screenConsole,
-					setScreenConsole
+					setScreenConsole,
+					setMessages
 				}}
 			/>
 			{screenConsole && <button onClick={() => setMessages([])}>Clear Console</button>}
