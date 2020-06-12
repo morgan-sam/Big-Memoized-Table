@@ -51,10 +51,25 @@ const Table = (props) => {
 		[ data ]
 	);
 
+	const tableStyle = {
+		display: 'block',
+		height: '100%',
+		width: '100%',
+		overflowX: 'hidden',
+		overflowY: 'scroll',
+		border: '1px solid black'
+	};
+
 	return (
-		<table>
+		<table style={tableStyle}>
 			<thead>
-				<tr>{headings.map((el, i) => <th key={i}>{capitaliseEachWord(el)}</th>)}</tr>
+				<tr>
+					{headings.map((el, i) => (
+						<th className={`${el} heading`} key={i}>
+							{capitaliseEachWord(el)}
+						</th>
+					))}
+				</tr>
 			</thead>
 			<tbody>{tableEntries}</tbody>
 		</table>
