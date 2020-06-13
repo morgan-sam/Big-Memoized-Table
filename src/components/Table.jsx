@@ -36,6 +36,13 @@ const Table = (props) => {
 		setData(newData);
 	};
 
+	const nonMemoToggleGenderCell = (entryIndex, cellVal) => {
+		let newData = JSON.parse(JSON.stringify(data));
+		const newGender = cellVal === 'Male' ? 'Female' : 'Male';
+		newData[entryIndex]['gender'] = newGender;
+		setData(newData);
+	};
+
 	const nonMemoChangeCellValue = async (entryIndex, cellKey) => {
 		let newData = JSON.parse(JSON.stringify(data));
 		const newValue = await getSingleValue(cellKey);
@@ -51,6 +58,7 @@ const Table = (props) => {
 						{Object.entries(entry).map(([ key, value ], i) => (
 							<Cell
 								toggleCell={memoization ? memoToggleCell : nonMemoToggleCell}
+								toggleGenderCell={nonMemoToggleGenderCell}
 								changeCellValue={nonMemoChangeCellValue}
 								cellKey={key}
 								cellVal={value}
