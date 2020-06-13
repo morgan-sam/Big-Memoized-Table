@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Demo = (props) => {
-	const { demoScreen, setDemoScreen } = props;
+const Tutorial = (props) => {
+	const { tutorialScreen, setTutorialScreen } = props;
 
-	const demoes = [
+	const slides = [
 		{
 			text: [
 				'This webpage demonstrates the performance enhancement of memoizing large arrays of data.',
@@ -21,7 +21,7 @@ const Demo = (props) => {
 		{ text: 'DEFAULT TEXT' }
 	];
 
-	const demoBoxStyle = {
+	const tutorialBoxStyle = {
 		position: 'absolute',
 		top: '50%',
 		left: '50%',
@@ -59,37 +59,37 @@ const Demo = (props) => {
 	};
 
 	const previousPage = () => {
-		const newPage = demoScreen - 1;
-		if (newPage < 1) setDemoScreen(demoes.length);
-		else setDemoScreen(newPage);
+		const newPage = tutorialScreen - 1;
+		if (newPage < 1) setTutorialScreen(slides.length);
+		else setTutorialScreen(newPage);
 	};
 	const nextPage = () => {
-		const newPage = demoScreen + 1;
-		if (newPage > demoes.length) setDemoScreen(1);
-		else setDemoScreen(newPage);
+		const newPage = tutorialScreen + 1;
+		if (newPage > slides.length) setTutorialScreen(1);
+		else setTutorialScreen(newPage);
 	};
 
 	const generateParagraphText = () => {
-		const text = demoes[demoScreen - 1].text;
+		const text = slides[tutorialScreen - 1].text;
 		if (Array.isArray(text)) return text.map((text) => <p>{text}</p>);
 		else return <p>{text}</p>;
 	};
 
 	return (
-		<div style={demoBoxStyle}>
+		<div style={tutorialBoxStyle}>
 			<div style={pageTextStyle}>{generateParagraphText()}</div>
 			<div>
 				<button onClick={previousPage}>Previous</button>
 				<span style={pageNumberStyle}>
-					Page {demoScreen}/{demoes.length}
+					Page {tutorialScreen}/{slides.length}
 				</span>
 				<button onClick={nextPage}>Next</button>
 			</div>
-			<button style={closeButtonStyle} onClick={() => setDemoScreen(0)}>
+			<button style={closeButtonStyle} onClick={() => setTutorialScreen(0)}>
 				X
 			</button>
 		</div>
 	);
 };
 
-export default Demo;
+export default Tutorial;

@@ -9,7 +9,7 @@ const Options = (props) => {
 		screenConsole,
 		setScreenConsole,
 		setMessages,
-		setDemoScreen
+		setTutorialScreen
 	} = props;
 
 	const infoStyle = { display: 'flex', alignItems: 'center', border: '1px solid black', padding: '1rem' };
@@ -37,7 +37,7 @@ const Options = (props) => {
 			<button onClick={() => setScreenConsole(!screenConsole)}>
 				Use {screenConsole ? 'Off' : 'On'}screen Console
 			</button>
-			<button onClick={() => setDemoScreen(1)}>DEMO</button>
+			<button onClick={() => setTutorialScreen(1)}>Tutorial</button>
 		</div>
 	);
 };

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Table from 'components/Table';
 import Options from 'components/Options';
 import Console from 'components/Console';
-import Demo from 'components/Demo';
+import Tutorial from 'components/Tutorial';
 import { capitaliseEachWord } from 'process/utility';
 
 const CONSOLE_WIDTH_REM = 20;
@@ -15,7 +15,7 @@ const App = () => {
 	const [ memoization, setMemoization ] = useState([]);
 	const [ screenConsole, setScreenConsole ] = useState(true);
 	const [ loading, setLoading ] = useState(false);
-	const [ demoScreen, setDemoScreen ] = useState(1);
+	const [ tutorialScreen, setTutorialScreen ] = useState(1);
 
 	const addNewMessage = React.useCallback((str) => {
 		setMessages((messages) => {
@@ -105,7 +105,7 @@ const App = () => {
 					screenConsole,
 					setScreenConsole,
 					setMessages,
-					setDemoScreen
+					setTutorialScreen
 				}}
 			/>
 			{screenConsole && <button onClick={() => setMessages([])}>Clear Console</button>}
@@ -119,7 +119,9 @@ const App = () => {
 				getSingleValue={getSingleValue}
 			/>
 			{screenConsole && <Console CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} messages={messages} />}
-			{demoScreen > 0 && <Demo demoScreen={demoScreen} setDemoScreen={setDemoScreen} />}{' '}
+			{tutorialScreen > 0 && (
+				<Tutorial tutorialScreen={tutorialScreen} setTutorialScreen={setTutorialScreen} />
+			)}{' '}
 		</div>
 	);
 };
