@@ -7,7 +7,7 @@ const Demo = (props) => {
 		{
 			text: [
 				'This webpage demonstrates the performance enhancement of memoizing large arrays of data.',
-				'It features an example database of user information.'
+				'It features an example database of user information using the randomuser.me API.'
 			]
 		},
 		{ text: '' },
@@ -64,9 +64,15 @@ const Demo = (props) => {
 		else setDemoScreen(newPage);
 	};
 
+	const generateParagraphText = () => {
+		const text = demoes[demoScreen - 1].text;
+		if (Array.isArray(text)) return text.map((text) => <p>{text}</p>);
+		else return <p>{text}</p>;
+	};
+
 	return (
 		<div style={demoBoxStyle}>
-			<div style={pageTextStyle}>{demoes[demoScreen - 1].text.map((text) => <p>{text}</p>)}</div>
+			<div style={pageTextStyle}>{generateParagraphText()}</div>
 			<div>
 				<button onClick={previousPage}>Previous</button>
 				<span style={pageNumberStyle}>
