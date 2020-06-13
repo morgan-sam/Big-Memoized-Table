@@ -15,7 +15,7 @@ const App = () => {
 	const [ memoization, setMemoization ] = useState([]);
 	const [ screenConsole, setScreenConsole ] = useState(true);
 	const [ loading, setLoading ] = useState(false);
-	const [ tutorialScreen, setTutorialScreen ] = useState(1);
+	const [ tutorialScreen, setTutorialScreen ] = useState(0);
 
 	const addNewMessage = React.useCallback((str) => {
 		setMessages((messages) => {
