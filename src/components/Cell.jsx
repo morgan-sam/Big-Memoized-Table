@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Cell = (props) => {
-	const { cellKey, cellVal, entryIndex, toggleCell, toggleGenderCell, changeCellValue } = props;
+	const { cellKey, cellVal, entryIndex, toggleBooleanCell, toggleGenderCell, changeCellValue } = props;
 	console.log(`Entry ${entryIndex}, ${cellKey} cell updated`);
 	const booleanCell = typeof cellVal === 'boolean';
 
 	const handleClick = () => {
-		if (booleanCell) toggleCell(entryIndex, cellKey, cellVal);
+		if (booleanCell) toggleBooleanCell(entryIndex, cellKey, cellVal);
 		else if (cellKey === 'gender') toggleGenderCell(entryIndex, cellVal);
 		else changeCellValue(entryIndex, cellKey);
 	};

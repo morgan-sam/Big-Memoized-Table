@@ -57,7 +57,7 @@ const Table = (props) => {
 					<tr key={i}>
 						{Object.entries(entry).map(([ key, value ], i) => (
 							<Cell
-								toggleCell={memoization ? memoToggleCell : nonMemoToggleCell}
+								toggleBooleanCell={memoization ? memoToggleCell : nonMemoToggleCell}
 								toggleGenderCell={nonMemoToggleGenderCell}
 								changeCellValue={nonMemoChangeCellValue}
 								cellKey={key}
