@@ -130,15 +130,17 @@ const Table = (props) => {
 		<Spinner />
 	) : (
 		<table style={tableStyle}>
-			<thead>
-				<tr>
-					{headings.map((el, i) => (
-						<th className={`${el} heading`} key={i}>
-							{capitaliseEachWord(el)}
-						</th>
-					))}
-				</tr>
-			</thead>
+			{Boolean(tableEntries.length) && (
+				<thead>
+					<tr>
+						{headings.map((el, i) => (
+							<th className={`${el} heading`} key={i}>
+								{capitaliseEachWord(el)}
+							</th>
+						))}
+					</tr>
+				</thead>
+			)}
 			<tbody>{tableEntries}</tbody>
 		</table>
 	);
