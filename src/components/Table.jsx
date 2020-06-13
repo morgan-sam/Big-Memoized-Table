@@ -22,6 +22,8 @@ const Table = (props) => {
 	const { data, setData, memoization, loading, setLoading, getSingleValue } = props;
 	const [ tableEntries, setTableEntries ] = useState([]);
 
+	// Non-memoized Functions //
+
 	const nonMemoToggleCell = (entryIndex, cellKey, cellVal) => {
 		let newData = JSON.parse(JSON.stringify(data));
 		newData[entryIndex][cellKey] = !cellVal;
@@ -49,6 +51,8 @@ const Table = (props) => {
 		setData(newData);
 	};
 
+	// Memoized Functions //
+
 	const memoToggleCell = useCallback((entryIndex, cellKey, cellVal) => {
 		setData((data) => {
 			let newData = JSON.parse(JSON.stringify(data));
@@ -56,6 +60,35 @@ const Table = (props) => {
 			return newData;
 		});
 	}, []);
+
+	const memoToggleGenderCell = useCallback((entryIndex, cellVal) => {
+		setData((data) => {
+			let newData = JSON.parse(JSON.stringify(data));
+			const newGender = cellVal === 'Male' ? 'Female' : 'Male';
+			newData[entryIndex]['gender'] = newGender;
+			return newData;
+		});
+	}, []);
+
+	const memoChangeAgeCell = useCallback((entryIndex) => {
+		setData((data) => {
+			let newData = JSON.parse(JSON.stringify(data));
+			const newAge = Math.round(Math.random() * (99 - 18) + 18);
+			newData[entryIndex]['age'] = newAge;
+			return newData;
+		});
+	}, []);
+
+	const memoChangeCellValue = useCallback(async (entryIndex, cellKey) => {
+		const newValue = await getSingleValue(cellKey);
+		setData((data) => {
+			let newData = JSON.parse(JSON.stringify(data));
+			newData[entryIndex][cellKey] = newValue;
+			return newData;
+		});
+	}, []);
+
+	///////////////////////
 
 	useEffect(
 		() => {
@@ -65,9 +98,9 @@ const Table = (props) => {
 						{Object.entries(entry).map(([ key, value ], i) => (
 							<Cell
 								toggleBooleanCell={memoization ? memoToggleCell : nonMemoToggleCell}
-								toggleGenderCell={nonMemoToggleGenderCell}
-								changeAgeCell={nonMemoChangeAgeCell}
-								changeCellValue={nonMemoChangeCellValue}
+								toggleGenderCell={memoization ? memoToggleGenderCell : nonMemoToggleGenderCell}
+								changeAgeCell={memoization ? memoChangeAgeCell : nonMemoChangeAgeCell}
+								changeCellValue={memoization ? memoChangeCellValue : nonMemoChangeCellValue}
 								cellKey={key}
 								cellVal={value}
 								entryIndex={entry.index}
