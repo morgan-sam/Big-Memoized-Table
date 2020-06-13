@@ -88,7 +88,7 @@ const Table = (props) => {
 		});
 	}, []);
 
-	///////////////////////
+	////////////////////////
 
 	useEffect(
 		() => {
@@ -115,12 +115,7 @@ const Table = (props) => {
 		[ data, memoization ]
 	);
 
-	useEffect(
-		() => {
-			setLoading(false);
-		},
-		[ tableEntries ]
-	);
+	useEffect(() => setLoading(false), [ tableEntries ]);
 
 	const tableStyle = {
 		display: 'block',
