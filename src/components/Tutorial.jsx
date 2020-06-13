@@ -1,4 +1,5 @@
 import React from 'react';
+import { tutorialBoxStyle, pageTextStyle, pageNumberStyle, closeButtonStyle } from 'style/tutorial';
 
 const Tutorial = (props) => {
 	const { tutorialScreen, setTutorialScreen } = props;
@@ -44,44 +45,6 @@ const Tutorial = (props) => {
 			]
 		}
 	];
-
-	const tutorialBoxStyle = {
-		position: 'absolute',
-		top: '50%',
-		left: '50%',
-		transform: 'translate(-50%,-50%)',
-		backgroundColor: 'white',
-		padding: '2rem',
-		border: '1px solid black',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		flexDirection: 'column',
-		borderRadius: '1rem',
-		width: '30rem'
-	};
-
-	const pageTextStyle = {
-		padding: '1rem 2rem 2rem 2rem'
-	};
-
-	const pageNumberStyle = {
-		padding: '2rem'
-	};
-
-	const closeButtonStyle = {
-		position: 'absolute',
-		top: '1rem',
-		right: '1rem',
-		height: '1.5rem',
-		width: '1.5rem',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: '#ff726f',
-		border: '1px solid #ddd',
-		color: 'white'
-	};
 
 	const previousPage = () => {
 		const newPage = tutorialScreen - 1;
