@@ -1,7 +1,16 @@
 import React from 'react';
 
 const Options = (props) => {
-	const { data, setUsers, memoization, setMemoization, screenConsole, setScreenConsole, setMessages } = props;
+	const {
+		data,
+		setUsers,
+		memoization,
+		setMemoization,
+		screenConsole,
+		setScreenConsole,
+		setMessages,
+		setDemoScreen
+	} = props;
 
 	const infoStyle = { display: 'flex', alignItems: 'center', border: '1px solid black', padding: '1rem' };
 	const setUserCountResetConsole = (num) => {
@@ -28,6 +37,7 @@ const Options = (props) => {
 			<button onClick={() => setScreenConsole(!screenConsole)}>
 				Use {screenConsole ? 'Off' : 'On'}screen Console
 			</button>
+			<button onClick={() => setDemoScreen(1)}>DEMO</button>
 		</div>
 	);
 };
