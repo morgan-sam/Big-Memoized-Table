@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Cell from 'components/Cell';
 import Spinner from 'components/Spinner';
 import { capitaliseEachWord } from 'process/utility';
+import { getSingleValue } from 'process/users';
 
 const headings = [
 	'index',
@@ -19,7 +20,7 @@ const headings = [
 ];
 
 const Table = (props) => {
-	const { data, setData, memoization, loading, setLoading, getSingleValue } = props;
+	const { data, setData, memoization, loading, setLoading } = props;
 	const [ tableEntries, setTableEntries ] = useState([]);
 
 	// Non-memoized Functions //

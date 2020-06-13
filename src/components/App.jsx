@@ -3,7 +3,7 @@ import Table from 'components/Table';
 import Options from 'components/Options';
 import Console from 'components/Console';
 import Tutorial from 'components/Tutorial';
-import { capitaliseEachWord } from 'process/utility';
+import { getUsers, parseUsers } from 'process/users';
 
 const CONSOLE_WIDTH_REM = 20;
 
@@ -29,37 +29,6 @@ const App = () => {
 			log: addNewMessage
 		};
 	else window.console = originalConsole;
-
-	const getUsers = async (num) => {
-		const raw = await fetch(`https://randomuser.me/api/?results=${num}`);
-		const json = await raw.json();
-		return json.results;
-	};
-
-	const parseUsers = (data) => {
-		return data.map((entry, i) => {
-			return {
-				index: i,
-				firstname: entry.name.first,
-				lastname: entry.name.last,
-				gender: capitaliseEachWord(entry.gender),
-				age: entry.dob.age,
-				address: `${entry.location.street.number} ${entry.location.street.name} ${entry.location.postcode}`,
-				country: entry.location.country,
-				email: entry.email,
-				phone: entry.phone,
-				mobile: entry.cell,
-				active: Math.random() > 0.5,
-				premium: Math.random() > 0.5
-			};
-		});
-	};
-
-	const getSingleValue = async (key) => {
-		const user = await getUsers(1);
-		const parsed = parseUsers(user);
-		return parsed[0][key];
-	};
 
 	const setUsers = async (num) => {
 		setData([]);
@@ -109,7 +78,7 @@ const App = () => {
 				}}
 			/>
 			{screenConsole && <button onClick={() => setMessages([])}>Clear Console</button>}
-			<Table {...{ data, setData, memoization, loading, setLoading, setMessages, getSingleValue }} />
+			<Table {...{ data, setData, memoization, loading, setLoading, setMessages }} />
 			{screenConsole && <Console {...{ CONSOLE_WIDTH_REM, messages }} />}
 			{tutorialScreen > 0 && <Tutorial {...{ tutorialScreen, setTutorialScreen }} />}{' '}
 		</div>
