@@ -43,6 +43,13 @@ const Table = (props) => {
 		setData(newData);
 	};
 
+	const nonMemoChangeAgeCell = (entryIndex) => {
+		let newData = JSON.parse(JSON.stringify(data));
+		const newAge = Math.round(Math.random() * (99 - 18) + 18);
+		newData[entryIndex]['age'] = newAge;
+		setData(newData);
+	};
+
 	const nonMemoChangeCellValue = async (entryIndex, cellKey) => {
 		let newData = JSON.parse(JSON.stringify(data));
 		const newValue = await getSingleValue(cellKey);
@@ -59,6 +66,7 @@ const Table = (props) => {
 							<Cell
 								toggleBooleanCell={memoization ? memoToggleCell : nonMemoToggleCell}
 								toggleGenderCell={nonMemoToggleGenderCell}
+								changeAgeCell={nonMemoChangeAgeCell}
 								changeCellValue={nonMemoChangeCellValue}
 								cellKey={key}
 								cellVal={value}
