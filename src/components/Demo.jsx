@@ -4,8 +4,13 @@ const Demo = (props) => {
 	const { demoScreen, setDemoScreen } = props;
 
 	const demoes = [
-		{ text: 'This webpage demonstrates the performance enhancement of memoizing large arrays of data.' },
-		{ text: 'DEFAULT TEXT' },
+		{
+			text: [
+				'This webpage demonstrates the performance enhancement of memoizing large arrays of data.',
+				'It features an example database of user information.'
+			]
+		},
+		{ text: '' },
 		{ text: 'DEFAULT TEXT' },
 		{ text: 'DEFAULT TEXT' },
 		{ text: 'DEFAULT TEXT' }
@@ -27,7 +32,7 @@ const Demo = (props) => {
 	};
 
 	const pageTextStyle = {
-		padding: '2rem'
+		padding: '1rem 2rem 2rem 2rem'
 	};
 
 	const pageNumberStyle = {
@@ -61,7 +66,7 @@ const Demo = (props) => {
 
 	return (
 		<div style={demoBoxStyle}>
-			<p style={pageTextStyle}>{demoes[demoScreen - 1].text}</p>
+			<div style={pageTextStyle}>{demoes[demoScreen - 1].text.map((text) => <p>{text}</p>)}</div>
 			<div>
 				<button onClick={previousPage}>Previous</button>
 				<span style={pageNumberStyle}>
