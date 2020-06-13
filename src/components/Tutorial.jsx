@@ -33,7 +33,8 @@ const Tutorial = (props) => {
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'column',
-		borderRadius: '1rem'
+		borderRadius: '1rem',
+		width: '30rem'
 	};
 
 	const pageTextStyle = {
