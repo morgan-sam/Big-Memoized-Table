@@ -109,19 +109,9 @@ const App = () => {
 				}}
 			/>
 			{screenConsole && <button onClick={() => setMessages([])}>Clear Console</button>}
-			<Table
-				data={data}
-				setData={setData}
-				memoization={memoization}
-				loading={loading}
-				setLoading={setLoading}
-				setMessages={setMessages}
-				getSingleValue={getSingleValue}
-			/>
+			<Table {...{ data, setData, memoization, loading, setLoading, setMessages, getSingleValue }} />
 			{screenConsole && <Console CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} messages={messages} />}
-			{tutorialScreen > 0 && (
-				<Tutorial tutorialScreen={tutorialScreen} setTutorialScreen={setTutorialScreen} />
-			)}{' '}
+			{tutorialScreen > 0 && <Tutorial {...{ tutorialScreen, setTutorialScreen }} />}{' '}
 		</div>
 	);
 };
