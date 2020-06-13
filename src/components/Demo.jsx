@@ -8,15 +8,6 @@ const Demo = (props) => {
 		{ text: 'DEFAULT TEXT' },
 		{ text: 'DEFAULT TEXT' },
 		{ text: 'DEFAULT TEXT' },
-		{ text: 'DEFAULT TEXT' },
-		{ text: 'DEFAULT TEXT' },
-		{ text: 'DEFAULT TEXT' },
-		{ text: 'DEFAULT TEXT' },
-		{ text: 'DEFAULT TEXT' },
-		{ text: 'DEFAULT TEXT' },
-		{ text: 'DEFAULT TEXT' },
-		{ text: 'DEFAULT TEXT' },
-		{ text: 'DEFAULT TEXT' },
 		{ text: 'DEFAULT TEXT' }
 	];
 
@@ -31,7 +22,8 @@ const Demo = (props) => {
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
-		flexDirection: 'column'
+		flexDirection: 'column',
+		borderRadius: '1rem'
 	};
 
 	const pageTextStyle = {
