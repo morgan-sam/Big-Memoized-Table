@@ -13,7 +13,7 @@ const Cell = (props) => {
 	};
 
 	const cellStyle = {
-		cursor: booleanCell ? 'pointer' : 'auto',
+		cursor: cellKey !== 'index' ? 'pointer' : 'auto',
 		textAlign: booleanCell ? 'center' : 'left'
 	};
 
