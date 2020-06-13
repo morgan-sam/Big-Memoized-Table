@@ -5,18 +5,21 @@ const Tutorial = (props) => {
 
 	const slides = [
 		{
+			title: 'Tutorial Intro',
 			text: [
 				`This webpage demonstrates the performance enhancement of memoizing large arrays of data.`,
 				`It features an example database of user information using the randomuser.me API.`
 			]
 		},
 		{
+			title: 'Editing Data',
 			text: [
 				`Any data entry can be changed by simply clicking on the cell.`,
 				`For example clicking a cell containing the value "Male" will change the value to "Female", clicking a name will change the value to another random name, etc.`
 			]
 		},
 		{
+			title: 'Memoization Comparison',
 			text: [
 				`As a cell value changes an update message will log to the console on the right.`,
 				`Memoization is on by default. Turn it off with the button at the top. Now click another cell to update it's value.`,
@@ -24,6 +27,7 @@ const Tutorial = (props) => {
 			]
 		},
 		{
+			title: 'Large Data Sets',
 			text: [
 				`With a small data set, the speed difference is neglible and so the unnecessary component rerenders are not a massive issue.`,
 				`Change the size of the data set to a higher value (100 users/1000 users), and try updating a cell with memoization and without memoization for each.`,
@@ -31,6 +35,7 @@ const Tutorial = (props) => {
 			]
 		},
 		{
+			title: 'Tutorial End / Speed Testing',
 			text: [
 				`Hopefully this demo helps to illustrate why memoization is extremely important for optimizing large data sets.`,
 				`Note:`,
@@ -97,6 +102,7 @@ const Tutorial = (props) => {
 
 	return (
 		<div style={tutorialBoxStyle}>
+			<h3>{slides[tutorialScreen - 1].title}</h3>
 			<div style={pageTextStyle}>{generateParagraphText()}</div>
 			<div>
 				<button onClick={previousPage}>Previous</button>
