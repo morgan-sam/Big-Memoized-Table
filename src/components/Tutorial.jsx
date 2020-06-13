@@ -6,17 +6,23 @@ const Tutorial = (props) => {
 	const slides = [
 		{
 			text: [
-				'This webpage demonstrates the performance enhancement of memoizing large arrays of data.',
-				'It features an example database of user information using the randomuser.me API.'
+				`This webpage demonstrates the performance enhancement of memoizing large arrays of data.`,
+				`It features an example database of user information using the randomuser.me API.`
 			]
 		},
 		{
 			text: [
-				'Any data entry can be changed by simply clicking on the cell.',
-				'For example clicking a cell containing the value "Male" will change the value to "Female", clicking a name will change the value to another random name, etc.'
+				`Any data entry can be changed by simply clicking on the cell.`,
+				`For example clicking a cell containing the value "Male" will change the value to "Female", clicking a name will change the value to another random name, etc.`
 			]
 		},
-		{ text: 'DEFAULT TEXT' },
+		{
+			text: [
+				`As a cell value changes an update message will log to the console on the right.`,
+				`Memoization is on by default. Turn it off with the button at the top. Now click another cell to update it's value.`,
+				`You should see that every single cell on the table updated when using the non memoized function.`
+			]
+		},
 		{ text: 'DEFAULT TEXT' },
 		{ text: 'DEFAULT TEXT' }
 	];
