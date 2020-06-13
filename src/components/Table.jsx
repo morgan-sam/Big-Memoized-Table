@@ -3,6 +3,7 @@ import Cell from 'components/Cell';
 import Spinner from 'components/Spinner';
 import { capitaliseEachWord } from 'process/utility';
 import { getSingleValue } from 'process/users';
+import { tableStyle } from 'style/table';
 
 const headings = [
 	'index',
@@ -117,15 +118,6 @@ const Table = (props) => {
 	);
 
 	useEffect(() => setLoading(false), [ tableEntries ]);
-
-	const tableStyle = {
-		display: 'block',
-		height: '100%',
-		width: '100%',
-		overflowX: 'hidden',
-		overflowY: 'scroll',
-		border: '1px solid black'
-	};
 
 	return loading ? (
 		<Spinner />
