@@ -23,7 +23,13 @@ const Tutorial = (props) => {
 				`You should see that every single cell on the table updated when using the non memoized function.`
 			]
 		},
-		{ text: 'DEFAULT TEXT' },
+		{
+			text: [
+				`With a small data set, the speed difference is neglible and so the unnecessary component rerenders are not a massive issue.`,
+				`Change the size of the data set to a higher value, and try updating a cell with memoization and without memoization for each.`,
+				`With the larger sized tables the lag will become so significant it will cause the window to freeze for several seconds.`
+			]
+		},
 		{ text: 'DEFAULT TEXT' }
 	];
 
