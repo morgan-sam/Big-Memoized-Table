@@ -30,7 +30,14 @@ const Tutorial = (props) => {
 				`With the larger sized tables the lag will become so significant it will cause the window to freeze for several seconds.`
 			]
 		},
-		{ text: 'DEFAULT TEXT' }
+		{
+			text: [
+				`Hopefully this demo helps to illustrate why memoization is extremely important for optimizing large data sets.`,
+				`Note:`,
+				` Two aspects of the demo will affect the speed of the cell changes. The reuse of the console.log statement for the on screen console, and the fact the API gets called when any of the string field cells are clicked.`,
+				`For the most accurate speed test, set the app to use the off screen console and click either the Gender, Age, Active or Premium cells (all use offline functions).`
+			]
+		}
 	];
 
 	const tutorialBoxStyle = {
