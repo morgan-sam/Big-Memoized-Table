@@ -37,7 +37,9 @@ const Options = (props) => {
 			<button onClick={() => setScreenConsole(!screenConsole)}>
 				Use {screenConsole ? 'Off' : 'On'}screen Console
 			</button>
-			<button onClick={() => setTutorialScreen(1)}>Tutorial</button>
+			<button style={{ backgroundColor: 'khaki' }} onClick={() => setTutorialScreen(1)}>
+				Tutorial
+			</button>
 		</div>
 	);
 };
