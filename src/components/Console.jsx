@@ -1,28 +1,8 @@
 import React from 'react';
+import { containerStyle, titleStyle, consoleStyle } from 'style/console';
 
 const Console = (props) => {
-	const { messages, CONSOLE_WIDTH_REM } = props;
-
-	const containerStyle = {
-		width: `${CONSOLE_WIDTH_REM}rem`,
-		height: '100%',
-		boxSizing: 'border-box',
-		overflowX: 'hidden',
-		overflowY: 'scroll',
-		border: '1px solid black'
-	};
-
-	const titleStyle = {
-		fontSize: '1.2rem',
-		padding: '1rem',
-		textDecoration: 'underline'
-	};
-
-	const consoleStyle = {
-		boxSizing: 'border-box',
-		width: 'inherit',
-		margin: '1rem'
-	};
+	const { messages } = props;
 
 	return (
 		<div style={containerStyle}>

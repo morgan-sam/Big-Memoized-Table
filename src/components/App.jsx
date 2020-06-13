@@ -4,8 +4,7 @@ import Options from 'components/Options';
 import Console from 'components/Console';
 import Tutorial from 'components/Tutorial';
 import { getUsers, parseUsers } from 'process/users';
-
-const CONSOLE_WIDTH_REM = 20;
+import { getAppStyle } from 'style/app';
 
 const originalConsole = window.console;
 
@@ -52,19 +51,8 @@ const App = () => {
 
 	useEffect(() => window.localStorage.setItem('memoDemoTableEntries', JSON.stringify(data)), [ data ]);
 
-	const appStyle = {
-		display: 'grid',
-		gridTemplateColumns: screenConsole ? `1fr ${CONSOLE_WIDTH_REM}rem` : '1fr',
-		gridTemplateRows: '2rem 1fr',
-		gap: '1rem',
-		boxSizing: 'border-box',
-		height: '100vh',
-		width: '100vw',
-		padding: '3rem'
-	};
-
 	return (
-		<div className="App" style={appStyle}>
+		<div className="App" style={getAppStyle(screenConsole)}>
 			<Options
 				{...{
 					data,
@@ -79,7 +67,7 @@ const App = () => {
 			/>
 			{screenConsole && <button onClick={() => setMessages([])}>Clear Console</button>}
 			<Table {...{ data, setData, memoization, loading, setLoading, setMessages }} />
-			{screenConsole && <Console {...{ CONSOLE_WIDTH_REM, messages }} />}
+			{screenConsole && <Console {...{ messages }} />}
 			{tutorialScreen > 0 && <Tutorial {...{ tutorialScreen, setTutorialScreen }} />}{' '}
 		</div>
 	);
