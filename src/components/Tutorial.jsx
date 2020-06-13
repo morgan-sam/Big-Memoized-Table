@@ -26,7 +26,7 @@ const Tutorial = (props) => {
 		{
 			text: [
 				`With a small data set, the speed difference is neglible and so the unnecessary component rerenders are not a massive issue.`,
-				`Change the size of the data set to a higher value, and try updating a cell with memoization and without memoization for each.`,
+				`Change the size of the data set to a higher value (100 users/1000 users), and try updating a cell with memoization and without memoization for each.`,
 				`With the larger sized tables the lag will become so significant it will cause the window to freeze for several seconds.`
 			]
 		},
