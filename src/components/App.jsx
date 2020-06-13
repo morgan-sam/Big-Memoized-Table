@@ -49,7 +49,7 @@ const App = () => {
 				email: entry.email,
 				phone: entry.phone,
 				mobile: entry.cell,
-				active: false,
+				active: Math.random() > 0.5,
 				premium: Math.random() > 0.5
 			};
 		});
