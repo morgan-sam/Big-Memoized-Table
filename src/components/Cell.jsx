@@ -14,7 +14,8 @@ const Cell = (props) => {
 
 	const cellStyle = {
 		cursor: cellKey !== 'index' ? 'pointer' : 'auto',
-		textAlign: booleanCell ? 'center' : 'left'
+		textAlign: booleanCell ? 'center' : 'left',
+		userSelect: 'none'
 	};
 
 	return (
