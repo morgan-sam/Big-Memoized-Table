@@ -9,7 +9,7 @@ const Cell = (props) => {
 		if (booleanCell) toggleBooleanCell(entryIndex, cellKey, cellVal);
 		else if (cellKey === 'gender') toggleGenderCell(entryIndex, cellVal);
 		else if (cellKey === 'age') changeAgeCell(entryIndex, cellVal);
-		else changeCellValue(entryIndex, cellKey);
+		else if (cellKey !== 'index') changeCellValue(entryIndex, cellKey);
 	};
 
 	const cellStyle = {
