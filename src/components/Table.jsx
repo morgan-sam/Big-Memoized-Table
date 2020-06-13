@@ -19,7 +19,7 @@ const headings = [
 ];
 
 const Table = (props) => {
-	const { data, setData, memoization, loading, setLoading } = props;
+	const { data, setData, memoization, loading, setLoading, getSingleValue } = props;
 	const [ tableEntries, setTableEntries ] = useState([]);
 
 	const memoToggleCell = useCallback((entryIndex, cellKey, cellVal) => {
@@ -36,6 +36,13 @@ const Table = (props) => {
 		setData(newData);
 	};
 
+	const nonMemoChangeCellValue = async (entryIndex, cellKey) => {
+		let newData = JSON.parse(JSON.stringify(data));
+		const newValue = await getSingleValue(cellKey);
+		newData[entryIndex][cellKey] = newValue;
+		setData(newData);
+	};
+
 	useEffect(
 		() => {
 			const entries = data.map((entry, i) => {
@@ -44,6 +51,7 @@ const Table = (props) => {
 						{Object.entries(entry).map(([ key, value ], i) => (
 							<Cell
 								toggleCell={memoization ? memoToggleCell : nonMemoToggleCell}
+								changeCellValue={nonMemoChangeCellValue}
 								cellKey={key}
 								cellVal={value}
 								entryIndex={entry.index}

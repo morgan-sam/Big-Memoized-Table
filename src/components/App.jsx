@@ -53,6 +53,12 @@ const App = () => {
 		});
 	};
 
+	const getSingleValue = async (key) => {
+		const user = await getUsers(1);
+		const parsed = parseUsers(user);
+		return parsed[0][key];
+	};
+
 	const setUsers = async (num) => {
 		setData([]);
 		const unparsed = await getUsers(num);
@@ -107,6 +113,7 @@ const App = () => {
 				loading={loading}
 				setLoading={setLoading}
 				setMessages={setMessages}
+				getSingleValue={getSingleValue}
 			/>
 			{screenConsole && <Console CONSOLE_WIDTH_REM={CONSOLE_WIDTH_REM} messages={messages} />}
 		</div>

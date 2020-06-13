@@ -1,22 +1,23 @@
 import React from 'react';
 
 const Cell = (props) => {
-	const { cellKey, cellVal, entryIndex, toggleCell } = props;
+	const { cellKey, cellVal, entryIndex, toggleCell, changeCellValue } = props;
 	console.log(`Entry ${entryIndex}, ${cellKey} cell updated`);
-	const selectable = typeof cellVal === 'boolean';
+	const booleanCell = typeof cellVal === 'boolean';
 
 	const handleClick = () => {
-		if (selectable) toggleCell(entryIndex, cellKey, cellVal);
+		if (booleanCell) toggleCell(entryIndex, cellKey, cellVal);
+		else changeCellValue(entryIndex, cellKey);
 	};
 
 	const cellStyle = {
-		cursor: selectable ? 'pointer' : 'auto',
-		textAlign: selectable ? 'center' : 'left'
+		cursor: booleanCell ? 'pointer' : 'auto',
+		textAlign: booleanCell ? 'center' : 'left'
 	};
 
 	return (
 		<td className={`${cellKey} cell`} style={cellStyle} onClick={handleClick}>
-			{selectable ? cellVal ? '✔' : '' : cellVal}
+			{booleanCell ? cellVal ? '✔' : '' : cellVal}
 		</td>
 	);
 };
