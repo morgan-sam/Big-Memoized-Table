@@ -10,7 +10,12 @@ const Demo = (props) => {
 				'It features an example database of user information using the randomuser.me API.'
 			]
 		},
-		{ text: '' },
+		{
+			text: [
+				'Any data entry can be changed by simply clicking on the cell.',
+				'For example clicking a cell containing the value "Male" will change the value to "Female", clicking a name will change the value to another random name, etc.'
+			]
+		},
 		{ text: 'DEFAULT TEXT' },
 		{ text: 'DEFAULT TEXT' },
 		{ text: 'DEFAULT TEXT' }
