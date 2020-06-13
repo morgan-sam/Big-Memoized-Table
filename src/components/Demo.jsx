@@ -42,6 +42,20 @@ const Demo = (props) => {
 		padding: '2rem'
 	};
 
+	const closeButtonStyle = {
+		position: 'absolute',
+		top: '1rem',
+		right: '1rem',
+		height: '1.4rem',
+		width: '1.4rem',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#ff726f',
+		border: '1px solid #ddd',
+		color: 'white'
+	};
+
 	const previousPage = () => {
 		const newPage = demoScreen - 1;
 		if (newPage < 1) setDemoScreen(demoes.length);
@@ -63,6 +77,9 @@ const Demo = (props) => {
 				</span>
 				<button onClick={nextPage}>Next</button>
 			</div>
+			<button style={closeButtonStyle} onClick={() => setDemoScreen(0)}>
+				X
+			</button>
 		</div>
 	);
 };
