@@ -1,4 +1,5 @@
 import React from 'react';
+import { optionsStyle, infoStyle } from 'style/options';
 
 const Options = (props) => {
 	const {
@@ -12,14 +13,13 @@ const Options = (props) => {
 		setTutorialScreen
 	} = props;
 
-	const infoStyle = { display: 'flex', alignItems: 'center', border: '1px solid black', padding: '1rem' };
 	const setUserCountResetConsole = (num) => {
 		setUsers(num);
 		setMessages([]);
 	};
 
 	return (
-		<div className={'options'} style={{ display: 'flex', flexDirection: 'row' }}>
+		<div className={'options'} style={optionsStyle}>
 			<div style={{ ...infoStyle, backgroundColor: memoization ? '#E5FFE5' : '#FFB2C5' }}>
 				Memoization is {memoization ? 'On' : 'Off'}
 			</div>
