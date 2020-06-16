@@ -9,9 +9,9 @@
 
 <h3>Rendering in React</h3>
 
-<p>In React we reload components every time their prop inputs change.</p>
-<p>Often times data is shared across a large amount of components, while only a small amount of those components change their UI as the data changes.</p>
-<p>This can lead a large amount of unnecessary renders which slows down the performance of our app. With small data sets this is often negligible, but with larger data sets this can cause significant lag.</p>
+<p>In React we reload components every time their prop inputs change.
+Often times data is shared across a large amount of components, while only a small amount of those components change their UI as the data changes.
+This can lead a large amount of unnecessary renders which slows down the performance of our app. With small data sets this is often negligible, but with larger data sets this can cause significant lag.</p>
 
 <h3>React.memo and useContext</h3>
 
