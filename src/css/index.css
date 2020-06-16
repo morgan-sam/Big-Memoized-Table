@@ -21,7 +21,11 @@ td {
 }
 
 .options > * {
-	margin-right: 10px;
+	margin-right: 2rem;
+}
+
+.options > * > * {
+	margin-right: 0.5rem;
 }
 
 .address,
