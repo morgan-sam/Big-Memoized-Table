@@ -1,4 +1,4 @@
-<h3>Memoized Table Demo</h3>
+<h2>Memoized Table Demo</h2>
 
 <p>This is an app for demonstrating the performance enhancement of memoizing large arrays of data.</p>
 
