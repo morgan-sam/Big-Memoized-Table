@@ -23,7 +23,6 @@ const Options = (props) => {
 			<div style={{ ...infoStyle, backgroundColor: memoization ? '#E5FFE5' : '#FFB2C5' }}>
 				Memoization is {memoization ? 'On' : 'Off'}
 			</div>
-			<div style={infoStyle}>Number of Users: {data.length}</div>
 			<button
 				onClick={() => {
 					setMemoization(!memoization);
@@ -31,6 +30,7 @@ const Options = (props) => {
 			>
 				Turn Memoization {memoization ? 'Off' : 'On'}
 			</button>
+			<div style={infoStyle}>Number of Users: {data.length}</div>
 			<button onClick={() => setUserCountResetConsole(20)}>20 Users</button>
 			<button onClick={() => setUserCountResetConsole(100)}>100 Users</button>
 			<button onClick={() => setUserCountResetConsole(1000)}>1000 Users</button>
