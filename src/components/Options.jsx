@@ -24,12 +24,7 @@ const Options = (props) => {
 				<div style={{ ...infoStyle, backgroundColor: memoization ? '#E5FFE5' : '#FFB2C5' }}>
 					Memoization is {memoization ? 'On' : 'Off'}
 				</div>
-				<button
-					style={optionButton}
-					onClick={() => {
-						setMemoization(!memoization);
-					}}
-				>
+				<button style={optionButton} onClick={() => setMemoization(!memoization)}>
 					Turn Memoization {memoization ? 'Off' : 'On'}
 				</button>
 			</div>
