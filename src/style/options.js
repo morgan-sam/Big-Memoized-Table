@@ -4,6 +4,7 @@ export const optionsStyle = {
 };
 
 export const infoStyle = {
+	textAlign: 'center',
 	display: 'flex',
 	alignItems: 'center',
 	border: '1px solid black',
