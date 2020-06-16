@@ -8,5 +8,6 @@ export const infoStyle = {
 	display: 'flex',
 	alignItems: 'center',
 	border: '1px solid black',
-	padding: '1rem'
+	padding: '1rem',
+	overflow: 'hidden'
 };
