@@ -15,4 +15,8 @@
 
 <h3>React.memo and useContext</h3>
 
-<p>The <i>memo</i> and <i>useContext</i> hooks both allow you to memoize props for functional components in React. This prevents unnecessary renders and can provide performance gains.
+<p>The <i>memo</i> and <i>useContext</i> hooks both allow you to memoize props for functional components in React. This prevents unnecessary renders and can provide performance gains.</p>
+
+<h3>Demo</h3>
+
+<p>This demo allows you to compare memoized vs non-memoized processing speeds. Memoization can be turned on or off with a button, and any cell's data can be changed by clicking on it. The table data set size can be changed in order to observe how the size of the data affects the speed changes.</p> 
