@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Memoized-Table-Demo/precache-manifest.f406e240bc714bc63d8dff99a59fb2a5.js"
+  "/Memoized-Table-Demo/precache-manifest.24a2742d7cb84a138130b615df50329a.js"
 );
 
 self.addEventListener('message', (event) => {
